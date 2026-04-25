@@ -1,6 +1,5 @@
 # ========================================
-# Next.js 项目 Docker 配置
-# 用于 CloudBase / 腾讯云 Serverless 部署
+# Next.js 项目 Docker 配置（CloudBase 专用）
 # ========================================
 
 # 阶段 1：安装依赖
@@ -12,6 +11,7 @@ RUN pnpm install --frozen-lockfile
 
 # 阶段 2：构建项目
 FROM node:20-alpine AS builder
+RUN corepack enable
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -24,11 +24,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# 创建非 root 用户
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# 复制构建产物
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
