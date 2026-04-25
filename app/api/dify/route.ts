@@ -42,8 +42,14 @@ export async function POST(request: NextRequest) {
       const errorData = await response.text()
       console.error('[v0] Dify API 请求失败:', response.status, errorData)
       return NextResponse.json(
-        { error: `Dify API 请求失败: ${response.status}` },
-        { status: response.status }
+        {
+          error: `Dify API 请求失败: ${response.status}`,
+          details: errorData,
+          answer: '',
+          sources: [],
+          retriever_resources: [],
+        },
+        { status: 200 }  // 返回200让前端能展示错误详情
       )
     }
 
