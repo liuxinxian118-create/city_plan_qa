@@ -1,0 +1,43 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "三区三线划定标准是什么？",
+      "category": "土地规划",
+      "enabled": true,
+      "order": 1
+    },
+    {
+      "id": 2,
+      "title": "基本农田内能否修建农村道路？",
+      "category": "农业政策",
+      "enabled": true,
+      "order": 2
+    },
+    {
+      "id": 3,
+      "title": "城镇开发边界调整由谁审批？",
+      "category": "行政审批",
+      "enabled": true,
+      "order": 3
+    },
+    {
+      "id": 4,
+      "title": "生态保护红线保护的用地有哪些？",
+      "category": "土地规划",
+      "enabled": true,
+      "order": 4
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": 1777113720537,
+      "question": "2024版用地用海分类有哪些变化？",
+      "type": "useful",
+      "errorType": "",
+      "correctInfo": "",
+      "contactInfo": "",
+      "createdAt": "2026-04-25T10:42:00.538Z"
+    }
+  ]
+}
